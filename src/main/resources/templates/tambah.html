@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+            crossorigin="anonymous"
+            />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"
+        ></script>
+        <title>Create KTP</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h3>Tambah Data</h3>
+            <hr />
+        </div>
+        <div class="container">
+            <form th:action="@{/tambahdata}" method="POST" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="noktp">No KTP</label>
+                    <input type="text" name="noktp" id="noktp" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="nama">Nama</label>
+                    <input type="text" name="nama" id="nama" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="tgllahir">Tanggal Lahir</label>
+                    <input type="date" name="tgllahir" id="tgllahir" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="jeniskelamin">Jenis Kelamin</label>
+                    <input type="radio" name="jeniskelamin" value="Laki-Laki" required />
+                    <span>Laki-Laki</span>
+                    <input type="radio" name="jeniskelamin" value="Perempuan" required />
+                    <span>Perempuan</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="alamat">Alamat</label>
+                    <input type="text" name="alamat" id="alamat" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="agama">Agama</label>
+                    <input type="text" name="agama" id="agama" class="form-control" />
+                </div>  
+
+                <div class="mb-3">
+                    <label for="status">Status</label>
+                    <input type="radio" name="status" value="Kawin" required />
+                    <span>KAWIN</span>
+                    <input type="radio" name="status" value="Belum Kawin" required />
+                    <span>BELUM KAWIN</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="pekerjaan">Pekerjaan</label>
+                    <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="warganegara">Warga Negara</label>
+                    <input type="radio" name="warganegara" value="WNI" required />
+                    <span>WNI</span>
+                    <input type="radio" name="warganegara" value="WNA" required />
+                    <span>WNA</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="id">Foto</label>
+                    <input type="file" name="foto" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary mb-4">Simpan</button>
+            </form>
+        </div>
+    </body>
+</html>

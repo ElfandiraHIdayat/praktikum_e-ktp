@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Database</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+              integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+              crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand text text-light" href="index.html">Database</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active text text-light" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text text-light" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled text text-light">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <div></div>
+        <div align="center" class="h2">Database KTP</div>
+        <a th:href="@{/tambah}" class="databaru btn btn-outline-primary">Data Baru</a>
+        <!--        <a href="/search">Cari Data</a>-->
+        <div class="table-responsive">
+            <table class="table table-striped align-middle">
+                <tr>
+                    <th>NIK</th>
+                    <th>Nama</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Alamat</th>
+                    <th>Action</th>
+                </tr>
+                <tr th:each="godata:${goData}">
+                    <td th:text="${godata.noktp}"></td>
+                    <td th:text="${godata.nama}"></td>
+                    <td th:text="${#calendars.format(godata.tgllahir,'dd-MMM-yyyy')}"></td>
+                    <td th:text="${godata.alamat}"></td>
+                    <td>
+                        <a th:href="@{/detail/{id}(id=${godata.id})}" class="btn btn-primary">Detail</a>
+                        <a th:href="@{/edit/{id}(id=${godata.id})}" class="btn btn-warning">Edit</a>
+                        <a th:href="@{/hapus/{id}(id=${godata.id})}" onclick="return confirm('Apakah Anda yakin ingin hapus?')" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
